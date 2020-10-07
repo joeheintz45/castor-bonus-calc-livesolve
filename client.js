@@ -48,7 +48,12 @@ for (let i = 0; i < employees.length; i++) {
 }
 
 function makeNewEmployeeBonusObject(kittyKat) {
-  const bonusObject = {};
+  const bonusObject = {
+    name: kittyKat.name,
+    bonusPercentage: 0,
+    totalCompensation: 0,
+    totalBonus: 0,
+  };
   return bonusObject;
 }
 
