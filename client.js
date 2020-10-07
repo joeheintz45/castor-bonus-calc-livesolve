@@ -75,17 +75,31 @@ function calcBonusPct(employee) {
   }
 
   // checking employee number
-  finalBonusPct = checksEmployeeSeniority(employeeNumber, finalBonusPct);
+  // finalBonusPct = checksEmployeeSeniority(employeeNumber, finalBonusPct);
+  if (employeeNumber.length === 4) {
+    finalBonusPct += 5;
+    // console.log(finalBonusPct);
+  }
 
   // check salary
-  finalBonusPct = checkEmployeeSalary(salary, finalBonusPct);
+  // finalBonusPct = checkEmployeeSalary(salary, finalBonusPct);
+  if (salary > 65000) {
+    finalBonusPct -= 1;
+  }
+
+  // PCT Range
+  if (finalBonusPct > 13) {
+    finalBonusPct = 13;
+  } else if (finalBonusPct < 0) {
+    finalBonusPct = 0;
+  }
 
   return finalBonusPct;
 }
 
-function checksEmployeeSeniority(employeeNumber, currentBonus) {
+function checksEmployeeSeniority(kittyKat, currentBonus) {
   // checking employee number
-  if (employeeNumber.length === 4) {
+  if (kittyKat.length === 4) {
     return currentBonus + 5;
     // console.log(finalBonusPct);
   }
