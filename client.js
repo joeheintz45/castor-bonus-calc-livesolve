@@ -30,6 +30,7 @@ const employees = [
     reviewRating: 1,
   },
 ];
+const employeeBonuses = [];
 
 // YOU SHOULD NOT NEED TO CHANGE ANYTHING ABOVE THIS POINT
 
@@ -44,7 +45,8 @@ for (let i = 0; i < employees.length; i++) {
   const employeeObj = employees[i];
 
   const newEmployeeObject = makeNewEmployeeBonusObject(employeeObj);
-  console.log(newEmployeeObject);
+  // console.log(newEmployeeObject);
+  employeeBonuses.push(newEmployeeObject);
 }
 
 function makeNewEmployeeBonusObject(kittyKat) {
@@ -125,3 +127,4 @@ function checkEmployeeSalary(annualSalary, currentBonus) {
 }
 
 console.log(employees);
+console.log(employeeBonuses);
