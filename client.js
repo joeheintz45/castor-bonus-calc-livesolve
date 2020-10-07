@@ -42,9 +42,12 @@ const employees = [
 
 for (let i = 0; i < employees.length; i++) {
   const employeeObj = employees[i];
-  console.log(employeeObj);
+
+  makeNewEmployeeBonusObject(employeeObj);
 }
 
-function makeNewEmployeeBonusObject() {}
+function makeNewEmployeeBonusObject(employee) {
+  console.log(employee);
+}
 
 console.log(employees);
