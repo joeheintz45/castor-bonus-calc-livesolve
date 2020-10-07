@@ -43,11 +43,13 @@ const employees = [
 for (let i = 0; i < employees.length; i++) {
   const employeeObj = employees[i];
 
-  makeNewEmployeeBonusObject(employeeObj);
+  const newEmployeeObject = makeNewEmployeeBonusObject(employeeObj);
+  console.log(newEmployeeObject);
 }
 
-function makeNewEmployeeBonusObject(employee) {
-  console.log(employee);
+function makeNewEmployeeBonusObject(kittyKat) {
+  const bonusObject = {};
+  return bonusObject;
 }
 
 console.log(employees);
