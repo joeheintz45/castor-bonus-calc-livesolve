@@ -48,13 +48,22 @@ for (let i = 0; i < employees.length; i++) {
 }
 
 function makeNewEmployeeBonusObject(kittyKat) {
+  const bonusPercentage = calcBonusPct(kittyKat);
+  const totalBonus = calcTotalBonus(bonusPercentage, kittyKat.annualSalary);
+  const totalCompensation = totalBonus + parseInt(kittyKat.annualSalary);
+
   const bonusObject = {
     name: kittyKat.name,
-    bonusPercentage: calcBonusPct(kittyKat),
-    totalCompensation: 0,
-    totalBonus: 0,
+    bonusPercentage,
+    totalCompensation: totalCompensation,
+    totalBonus,
   };
   return bonusObject;
+}
+
+function calcTotalBonus(bonusPct, salary) {
+  const salaryAsNum = parseInt(salary);
+  return Math.round((bonusPct / 100) * salaryAsNum);
 }
 
 function calcBonusPct(employee) {
