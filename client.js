@@ -61,6 +61,7 @@ function calcBonusPct(employee) {
   let finalBonusPct = 0;
   const employeeReviewRating = employee.reviewRating;
 
+  // checking ratings
   if (employeeReviewRating <= 2) {
     finalBonusPct = 0;
   } else if (employeeReviewRating === 3) {
@@ -69,6 +70,12 @@ function calcBonusPct(employee) {
     finalBonusPct = 6;
   } else if (employeeReviewRating === 5) {
     finalBonusPct = 10;
+  }
+
+  // checking employee number
+  if (employee.employeeNumber.length === 4) {
+    finalBonusPct = finalBonusPct + 5;
+    // console.log(finalBonusPct);
   }
 
   return finalBonusPct;
