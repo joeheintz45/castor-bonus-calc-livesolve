@@ -60,6 +60,8 @@ function makeNewEmployeeBonusObject(kittyKat) {
 function calcBonusPct(employee) {
   let finalBonusPct = 0;
   const employeeReviewRating = employee.reviewRating;
+  const employeeNumber = employee.employeeNumber;
+  const salary = parseInt(employee.annualSalary);
 
   // checking ratings
   if (employeeReviewRating <= 2) {
@@ -73,12 +75,30 @@ function calcBonusPct(employee) {
   }
 
   // checking employee number
-  if (employee.employeeNumber.length === 4) {
-    finalBonusPct = finalBonusPct + 5;
+  finalBonusPct = checksEmployeeSeniority(employeeNumber, finalBonusPct);
+
+  // check salary
+  finalBonusPct = checkEmployeeSalary(salary, finalBonusPct);
+
+  return finalBonusPct;
+}
+
+function checksEmployeeSeniority(employeeNumber, currentBonus) {
+  // checking employee number
+  if (employeeNumber.length === 4) {
+    return currentBonus + 5;
     // console.log(finalBonusPct);
   }
 
-  return finalBonusPct;
+  return currentBonus;
+}
+
+function checkEmployeeSalary(annualSalary, currentBonus) {
+  if (annualSalary > 65000) {
+    return currentBonus - 1;
+  }
+
+  return currentBonus;
 }
 
 console.log(employees);
