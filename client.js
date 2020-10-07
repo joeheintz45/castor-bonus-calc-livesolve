@@ -50,11 +50,28 @@ for (let i = 0; i < employees.length; i++) {
 function makeNewEmployeeBonusObject(kittyKat) {
   const bonusObject = {
     name: kittyKat.name,
-    bonusPercentage: 0,
+    bonusPercentage: calcBonusPct(kittyKat),
     totalCompensation: 0,
     totalBonus: 0,
   };
   return bonusObject;
+}
+
+function calcBonusPct(employee) {
+  let finalBonusPct = 0;
+  const employeeReviewRating = employee.reviewRating;
+
+  if (employeeReviewRating <= 2) {
+    finalBonusPct = 0;
+  } else if (employeeReviewRating === 3) {
+    finalBonusPct = 4;
+  } else if (employeeReviewRating === 4) {
+    finalBonusPct = 6;
+  } else if (employeeReviewRating === 5) {
+    finalBonusPct = 10;
+  }
+
+  return finalBonusPct;
 }
 
 console.log(employees);
